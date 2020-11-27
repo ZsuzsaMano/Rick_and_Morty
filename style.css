@@ -1,0 +1,12 @@
+h1{
+  text-align: center;
+  padding: 2em;
+}
+
+img{
+  width: 100%;
+}
+
+table, th, td{
+  border: 1px solid black;
+}
