@@ -16,6 +16,8 @@ const endpoint = `https://rickandmortyapi.com/api/character/?page=1`;
 //selectors
 
 const characters = document.getElementById('home__characters');
+const homeGallery = document.getElementById('home__gallery');
+
 
           data.results.forEach(x=>
 //display only characters staring in more then 5 episodes
@@ -23,17 +25,20 @@ const characters = document.getElementById('home__characters');
             {if(x.episode.length>5)
       {  const li = document.createElement('li');
         li.innerHTML = x.name
-      characters.appendChild(li)}}
+      characters.appendChild(li)
+
+
+      const oImg = document.createElement("img");
+      oImg.setAttribute('src',x.image);
+      oImg.setAttribute('alt', 'na');
+      oImg.setAttribute('height', '100px');
+      oImg.setAttribute('width', 'auto');
+      homeGallery.appendChild(oImg);}
+
+    }
       )
 
 
-// const homeGallery = document.getElementById('home__gallery');
-// data.animals.forEach(x =>{
-// const oImg = document.createElement("img");
-// oImg.setAttribute('src',x.photos[0].small);
-// oImg.setAttribute('alt', 'na');
-// oImg.setAttribute('height', '100px');
-// oImg.setAttribute('width', '100px');
-// homeGallery.appendChild(oImg);}
-// )
+
+
         })
