@@ -59,3 +59,14 @@ fetch(endpoint)
       fillTable()
 
   });
+
+
+// range slider value display
+  var slider = document.getElementById("myRange");
+var numOfEpisodes = document.getElementById("numOfEpisodes");
+numOfEpisodes.innerHTML = slider.value; // Display the default slider value
+
+// Update the current slider value (each time you drag the slider handle)
+slider.oninput = function() {
+  numOfEpisodes.innerHTML = this.value;
+}
