@@ -7,19 +7,6 @@ const species = document.querySelectorAll('input[name="species"]')
 const characters = document.querySelectorAll('input[type=checkbox]');
 
 
-
-
-//get values from form
-let characterValues = []
-characters.forEach(checked => characterValues.push(checked.value))
-
-const genderValue = document.getElementById('Gender').value;
-const speciesValue = document.querySelector('input[name="species"]:checked').value;
-const episodesValue = document.getElementById("myRange").value
-
-console.log(speciesValue + ', ' + genderValue + ', ' + episodesValue + ', ' + characterArray)
-
-
 const endpoint = `https://rickandmortyapi.com/api/character/?page=1`;
 fetch(endpoint)
   .then(response => {
@@ -29,43 +16,41 @@ fetch(endpoint)
 
     fillTable(data.results)
 
+setEventListener(data)
 
-    console.log(filterGender(data.results))
 
-    console.log(filterCharacter(data.results))
-
-    console.log(filterSpecies(data.results));
-
-    console.log(filterEpisode(data.results));
+    console.log(filterCharacter(data.results));
 
     //eventListener
-    range.addEventListener('change', () => {
-        clearTable();
-      fillTable(filterEpisode(data.results));
-    })
 
-    gender.addEventListener('change', ()=>{
-      clearTable();
-      if(filterGender(data.results)){
-      fillTable(filterGender(data.results))
-    }else{
-      fillTable(data.results);
-    }
-    })
-
-    species.forEach(x => x.addEventListener('change', ()=>{
-      clearTable();
-      if(filterSpecies(data.results)){
-      fillTable(filterSpecies(data.results))
-    }else{
-      fillTable(data.results);
-    }
-    }))
 
 
   })
 
+const  setEventListener = data =>{
+  range.addEventListener('change', () => {
+      clearTable();
+    fillTable(filterEpisode(data.results));
+  })
 
+  gender.addEventListener('change', ()=>{
+    clearTable();
+    if(filterGender(data.results)){
+    fillTable(filterGender(data.results))
+  }else{
+    fillTable(data.results);
+  }
+  })
+
+  species.forEach(x => x.addEventListener('change', ()=>{
+    clearTable();
+    if(filterSpecies(data.results)){
+    fillTable(filterSpecies(data.results))
+  }else{
+    fillTable(data.results);
+  }
+  }))
+}
 //delete all rows apart from header
   const clearTable = () => {
 const tableRows = table.rows.length-1
@@ -77,16 +62,22 @@ for(i=0; i<tableRows; i++)
       //filter by choosen form value
 
       const filterCharacter = data =>{
-      return data.filter(x => x.name.includes('Morty'))}
+        let characterValues = []
+        const checkedCharacters = document.querySelectorAll('input[type=checkbox]:checked');
+        checkedCharacters.forEach(checked => characterValues.push(checked.value))
+      return data.filter(x => characterValues.forEach(ch=>x.name.includes(ch)))}
 
       const filterGender = data => {
-      return  data.filter(x => x.gender === genderValue)
+      const genderValue = document.getElementById('Gender').value;
+      return genderValue === 'all' ? data: data.filter(x => x.gender === genderValue)
       }
 
       const filterSpecies = data =>{
-        return data.filter(x => x.species === speciesValue)}
+        const speciesValue = document.querySelector('input[name="species"]:checked').value;
+        return  speciesValue === 'All' ? data:data.filter(x => x.species === speciesValue)}
 
       const filterEpisode = data =>{
+        const episodesValue = document.getElementById("myRange").value
         return data.filter(x => x.episode.length >= episodesValue)
 }
 
