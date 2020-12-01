@@ -63,13 +63,14 @@ for(i=0; i<tableRows; i++)
         let characterValues = []
         const checkedCharacters = document.querySelectorAll('input[type=checkbox]:checked');
         checkedCharacters.forEach(checked => characterValues.push(checked.value))
+        let characterArray = []
         if(characterValues.includes('Morty')){
-          return data.filter(x => x.name.includes('Morty'))}
+          characterArray= [...data.filter(x => x.name.includes('Morty'))]}
         if(characterValues.includes('Rick')){
-          return data.filter(x => x.name.includes('Rick'))}
+          characterArray.push(...data.filter(x => x.name.includes('Rick')))}
         if(characterValues.includes('Other')){
-          return data.filter(x => x.name.indexOf('Morty')===-1 && x.name.indexOf('Rick')===-1)}
-
+          characterArray.push(...data.filter(x => x.name.indexOf('Morty')===-1 && x.name.indexOf('Rick')===-1))}
+            return characterArray
     }
 
       const filterGender = data => {
@@ -91,9 +92,6 @@ for(i=0; i<tableRows; i++)
         //filter data depending on value
         return data.filter(x => x.episode.length >= episodesValue)
 }
-
-
-
 
 const fillTable = arr => {
   arr.forEach((x, i) => {
