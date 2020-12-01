@@ -3,13 +3,15 @@
 const table = document.getElementById('table');
 const gender = document.getElementById('Gender');
 const range = document.getElementById('myRange');
+const species = document.querySelectorAll('input[name="species"]')
+const characters = document.querySelectorAll('input[type=checkbox]');
+
 
 
 
 //get values from form
-let characterArray = []
-const character = document.querySelectorAll('input[type=checkbox]:checked');
-character.forEach(checked => characterArray.push(checked.value))
+let characterValues = []
+characters.forEach(checked => characterValues.push(checked.value))
 
 const genderValue = document.getElementById('Gender').value;
 const speciesValue = document.querySelector('input[name="species"]:checked').value;
@@ -44,12 +46,27 @@ fetch(endpoint)
 
     gender.addEventListener('change', ()=>{
       clearTable();
+      if(filterGender(data.results)){
       fillTable(filterGender(data.results))
+    }else{
+      fillTable(data.results);
+    }
     })
+
+    species.forEach(x => x.addEventListener('change', ()=>{
+      clearTable();
+      if(filterSpecies(data.results)){
+      fillTable(filterSpecies(data.results))
+    }else{
+      fillTable(data.results);
+    }
+    }))
 
 
   })
 
+
+//delete all rows apart from header
   const clearTable = () => {
 const tableRows = table.rows.length-1
 for(i=0; i<tableRows; i++)
