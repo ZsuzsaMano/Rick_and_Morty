@@ -19,7 +19,7 @@ fetch(endpoint)
 setEventListener(data)
 
 
-    console.log(filterCharacter(data.results));
+console.log(filterCharacter(data.results));
 
     //eventListener
 
@@ -35,20 +35,17 @@ const  setEventListener = data =>{
 
   gender.addEventListener('change', ()=>{
     clearTable();
-    if(filterGender(data.results)){
     fillTable(filterGender(data.results))
-  }else{
-    fillTable(data.results);
-  }
   })
 
   species.forEach(x => x.addEventListener('change', ()=>{
     clearTable();
-    if(filterSpecies(data.results)){
     fillTable(filterSpecies(data.results))
-  }else{
-    fillTable(data.results);
-  }
+  }))
+
+  characters.forEach(x => x.addEventListener('change', ()=>{
+    clearTable();
+    fillTable(filterCharacter(data.results))
   }))
 }
 //delete all rows apart from header
@@ -66,8 +63,14 @@ for(i=0; i<tableRows; i++)
         let characterValues = []
         const checkedCharacters = document.querySelectorAll('input[type=checkbox]:checked');
         checkedCharacters.forEach(checked => characterValues.push(checked.value))
+        if(characterValues.includes('Morty')){
+          return data.filter(x => x.name.includes('Morty'))}
+        if(characterValues.includes('Rick')){
+          return data.filter(x => x.name.includes('Rick'))}
+        if(characterValues.includes('Other')){
+          return data.filter(x => x.name.indexOf('Morty')===-1 && x.name.indexOf('Rick')===-1)}
 
-      data.filter(x => x.name.includes('Morty'))}
+    }
 
       const filterGender = data => {
         //get value from form
