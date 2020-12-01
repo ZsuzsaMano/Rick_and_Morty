@@ -27,6 +27,7 @@ fetch(endpoint)
 
     fillTable(data.results)
 
+
     console.log(filterGender(data.results))
 
     console.log(filterCharacter(data.results))
@@ -37,15 +38,23 @@ fetch(endpoint)
 
     //eventListener
     range.addEventListener('change', () => {
+        clearTable();
       fillTable(filterEpisode(data.results));
     })
 
     gender.addEventListener('change', ()=>{
+      clearTable();
       fillTable(filterGender(data.results))
     })
 
 
   })
+
+  const clearTable = () => {
+const tableRows = table.rows.length-1
+for(i=0; i<tableRows; i++)
+    table.deleteRow(1); }
+
 
 
       //filter by choosen form value
