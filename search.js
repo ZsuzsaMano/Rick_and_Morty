@@ -62,22 +62,30 @@ for(i=0; i<tableRows; i++)
       //filter by choosen form value
 
       const filterCharacter = data =>{
+        //get value from form
         let characterValues = []
         const checkedCharacters = document.querySelectorAll('input[type=checkbox]:checked');
         checkedCharacters.forEach(checked => characterValues.push(checked.value))
-      return data.filter(x => characterValues.forEach(ch=>x.name.includes(ch)))}
+
+      data.filter(x => x.name.includes('Morty'))}
 
       const filterGender = data => {
+        //get value from form
       const genderValue = document.getElementById('Gender').value;
+      //filter data depending on value
       return genderValue === 'all' ? data: data.filter(x => x.gender === genderValue)
       }
 
       const filterSpecies = data =>{
+        //get value from form
         const speciesValue = document.querySelector('input[name="species"]:checked').value;
+        //filter data depending on value
         return  speciesValue === 'All' ? data:data.filter(x => x.species === speciesValue)}
 
       const filterEpisode = data =>{
+        //get value from form
         const episodesValue = document.getElementById("myRange").value
+        //filter data depending on value
         return data.filter(x => x.episode.length >= episodesValue)
 }
 
