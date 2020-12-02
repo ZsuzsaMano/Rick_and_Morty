@@ -5,7 +5,7 @@ const gender = document.getElementById('Gender');
 const range = document.getElementById('myRange');
 const species = document.querySelectorAll('input[name="species"]')
 const characters = document.querySelectorAll('input[type=checkbox]');
-
+const input = document.querySelectorAll('input');
 
 const endpoint = `https://rickandmortyapi.com/api/character/?page=1`;
 fetch(endpoint)
@@ -47,7 +47,14 @@ const  setEventListener = data =>{
     clearTable();
     fillTable(filterCharacter(data.results))
   }))
+
+  input.forEach(x=> x.addEventListener('change', () =>{
+    clearTable();
+    fillTable(allFilters(data.results))
+  }))
 }
+
+
 //delete all rows apart from header
   const clearTable = () => {
 const tableRows = table.rows.length-1
@@ -94,7 +101,7 @@ for(i=0; i<tableRows; i++)
 }
 
 const allFilters = data => {
-  return filterSpecies(filterGender(data))
+  return filterSpecies(filterGender(filterEpisode(filterCharacter(data))))
 }
 
 
