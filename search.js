@@ -93,6 +93,12 @@ for(i=0; i<tableRows; i++)
         return data.filter(x => x.episode.length >= episodesValue)
 }
 
+const allFilters = data => {
+  return filterSpecies(filterGender(data))
+}
+
+
+
 const fillTable = arr => {
   arr.forEach((x, i) => {
 
