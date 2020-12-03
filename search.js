@@ -17,40 +17,12 @@ fetch(endpoint)
     fillTable(data.results)
 
 setEventListener(data)
-
-
-console.log(filterCharacter(data.results));
-
-    //eventListener
-
-
-
   })
 
 const  setEventListener = data =>{
-  range.addEventListener('change', () => {
-      clearTable();
-    fillTable(filterEpisode(data.results));
-  })
-
-  gender.addEventListener('change', ()=>{
-    clearTable();
-    fillTable(filterGender(data.results))
-  })
-
-  species.forEach(x => x.addEventListener('change', ()=>{
-    clearTable();
-    fillTable(filterSpecies(data.results))
-  }))
-
-  characters.forEach(x => x.addEventListener('change', ()=>{
-    clearTable();
-    fillTable(filterCharacter(data.results))
-  }))
-
   input.forEach(x=> x.addEventListener('change', () =>{
-    clearTable();
-    fillTable(allFilters(data.results))
+      clearTable()
+fillTable(data.results)
   }))
 }
 
@@ -65,52 +37,44 @@ for(i=0; i<tableRows; i++)
 
       //filter by choosen form value
 
-      const filterCharacter = data =>{
+      const isCharacter = item =>{
         //get value from form
         let characterValues = []
         const checkedCharacters = document.querySelectorAll('input[type=checkbox]:checked');
         checkedCharacters.forEach(checked => characterValues.push(checked.value))
-        let characterArray = []
-        if(characterValues.includes('Morty')){
-          characterArray= [...data.filter(x => x.name.includes('Morty'))]}
-        if(characterValues.includes('Rick')){
-          characterArray.push(...data.filter(x => x.name.includes('Rick')))}
-        if(characterValues.includes('Other')){
-          characterArray.push(...data.filter(x => x.name.indexOf('Morty')===-1 && x.name.indexOf('Rick')===-1))}
-            return characterArray
+
+        return (characterValues.includes('Morty') && item.name.includes('Morty') )||
+      (characterValues.includes('Rick')&& item.name.includes('Rick'))||
+        (characterValues.includes('Other')&& item.name.indexOf('Morty')===-1 && item.name.indexOf('Rick')===-1) ? true :false
     }
 
-      const filterGender = data => {
+      const isGender = item => {
         //get value from form
       const genderValue = document.getElementById('Gender').value;
       //filter data depending on value
-      return genderValue === 'all' ? data: data.filter(x => x.gender === genderValue)
+      return  item.gender === genderValue || genderValue === 'all' ? true : false
       }
 
-      const filterSpecies = data =>{
+      const isSpecies = item =>{
         //get value from form
         const speciesValue = document.querySelector('input[name="species"]:checked').value;
-        //filter data depending on value
-        return  speciesValue === 'All' ? data:data.filter(x => x.species === speciesValue)}
+        //filter item depending on value
+        return  speciesValue === 'All' || item.species === speciesValue ? true :false}
 
-      const filterEpisode = data =>{
+      const isEpisode = item =>{
         //get value from form
         const episodesValue = document.getElementById("myRange").value
-        //filter data depending on value
-        return data.filter(x => x.episode.length >= episodesValue)
-}
-
-const allFilters = data => {
-  return filterSpecies(filterGender(filterEpisode(filterCharacter(data))))
+        //filter item depending on value
+        return item.episode.length >= episodesValue ? true : false
 }
 
 
 
 const fillTable = arr => {
-  arr.forEach((x, i) => {
-
+  arr.forEach((x) => {
+    if(isEpisode(x)&&isGender(x)&&isSpecies(x)&&isCharacter(x)){
     //create first column and display names
-    const row1 = table.insertRow(i + 1);
+    const row1 = table.insertRow(1);
     const col1 = row1.insertCell(0);
 
 
@@ -138,7 +102,7 @@ const fillTable = arr => {
     //create third column and display gender
     const col5 = row1.insertCell(4);
     col5.innerHTML = x.episode.map(episode => episode.substring(40)).join(', ');
-  });
+  }});
 };
 
 
