@@ -1,15 +1,23 @@
 :root{
   --font-color:#11B0C8;
   --font-before-hover:#a7ccd1;
-
+   --card-head:#aab5b8;
+   --card-body:#25404a17;
   --background-color:#000;
+  --main-background:#25404a;
+}
+
+@font-face {
+  font-family: Get Schwifty;
+  src: url(./font/get-schwifty.woff);
 }
 
 *, .container-fluid{
   margin:0;
   padding:0;
-  font-family: 'Creepster', cursive;
 }
+
+
 
 nav{
   background: var(--background-color);
@@ -23,16 +31,36 @@ a{
   color: var(--font-color);
 }
 
+main{
+background: var(--main-background);
+padding:2rem;
+}
+
 
 
 h1{
   text-align: center;
   padding: 1em;
   color:var(--font-color);
+  font-family: Get Schwifty;
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+}
+
+img{
+  border-radius: 5px;
 }
 
 .title__img{
-  width: 100%;
+  width: 90%;
+}
+
+#accordionExample{
+  width: 90%;
+}
+
+#home__characters{
+  padding: 1rem;
 }
 
 #home__gallery{
@@ -40,6 +68,25 @@ h1{
   justify-content: space-around;
   align-items: center;
   padding: 2rem;
+}
+
+#home__gallery img{
+  -webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+   clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+}
+
+
+.accordion > .card > .card-header{
+  background: var(--card-head);
+
+}
+
+.card-body{
+  background: #25404a17;
+}
+
+.btn-link{
+  color: var(--main-background);
 }
 
 form{
@@ -51,9 +98,12 @@ form{
 
 table{
     max-width: 800px;
-    margin: auto;
+    margin:auto;
+    background: var(--card-head);
+
 }
 
 table, th, td{
   border: 1px solid black;
+  text-align: center;
 }
