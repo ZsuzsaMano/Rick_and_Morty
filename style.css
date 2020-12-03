@@ -34,6 +34,7 @@ a{
 main{
 background: var(--main-background);
 padding:2rem;
+min-height: 90vh;
 }
 
 
