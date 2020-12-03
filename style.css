@@ -70,7 +70,39 @@ img{
   padding: 2rem;
 }
 
-#home__gallery img{
+img{
+  transition: opacity ease-out 250ms;
+ }
+
+.main-character__frame:hover img{
+  opacity:0.4;
+}
+
+.main-character__frame{
+   align-self: center;
+  position: relative;
+  background: #333;
+}
+
+.card-text{
+  font-weight: bold;
+  font-size: 1.2rem;
+  opacity:0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: opacity ease-out 450ms;
+  color:white;
+  }
+
+.main-character__frame:hover .card-text{
+  opacity:1;
+}
+
+
+
+#home__gallery img, .main-character__frame{
   -webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
 }
