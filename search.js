@@ -5,7 +5,7 @@ const gender = document.getElementById('Gender');
 const range = document.getElementById('myRange');
 const species = document.querySelectorAll('input[name="species"]')
 const characters = document.querySelectorAll('input[type=checkbox]');
-const input = document.querySelectorAll('input');
+const input = document.querySelectorAll('input, select');
 
 const endpoint = `https://rickandmortyapi.com/api/character/?page=1`;
 fetch(endpoint)
