@@ -26,15 +26,12 @@ const setEventListener = data => {
   }))
 }
 
-
 //delete all rows apart from header
 const clearTable = () => {
   const tableRows = table.rows.length - 1
   for (i = 0; i < tableRows; i++)
     table.deleteRow(1);
 }
-
-
 
 //filter by choosen form value
 
@@ -70,8 +67,6 @@ const isEpisode = item => {
   return item.episode.length >= episodesValue ? true : false
 }
 
-
-
 const fillTable = arr => {
   arr.forEach((x) => {
     if (isEpisode(x) && isGender(x) && isSpecies(x) && isCharacter(x)) {
@@ -79,11 +74,9 @@ const fillTable = arr => {
       const row1 = table.insertRow(1);
       const col1 = row1.insertCell(0);
 
-
       col1.innerHTML = x.name
 
       //create second column and display images
-
       const col2 = row1.insertCell(1);
 
       const oImg = document.createElement('img');
@@ -107,11 +100,6 @@ const fillTable = arr => {
     }
   });
 };
-
-
-
-
-
 
 // range slider value display
 const slider = document.getElementById('myRange');
