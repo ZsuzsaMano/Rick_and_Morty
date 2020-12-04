@@ -55,6 +55,7 @@ img {
 
 #accordionExample {
   width: 90%;
+  margin: 0 auto;
 }
 
 #home__characters {
@@ -123,8 +124,7 @@ form {
 }
 
 table {
-  min-width: 70%;
-  max-width: 800px;
+  width: minmax(70% 800px);
   margin: auto;
   background: var(--card-head);
 }
@@ -135,6 +135,10 @@ table, th, td {
 }
 
 @media screen and (max-width:550px) {
+  main {
+    padding: 0;
+  }
+
   .episodeColumn {
     display: none;
   }
