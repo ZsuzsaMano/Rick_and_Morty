@@ -30,6 +30,7 @@ a {
 }
 
 main {
+  text-align: center;
   background: var(--main-background);
   padding: 2rem;
   min-height: 90vh;
@@ -122,6 +123,7 @@ form {
 }
 
 table {
+  min-width: 70%;
   max-width: 800px;
   margin: auto;
   background: var(--card-head);
@@ -130,4 +132,10 @@ table {
 table, th, td {
   border: 1px solid black;
   text-align: center;
+}
+
+@media screen and (max-width:550px) {
+  .episodeColumn {
+    display: none;
+  }
 }

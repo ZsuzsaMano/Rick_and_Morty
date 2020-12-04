@@ -96,6 +96,7 @@ const fillTable = arr => {
 
       //create third column and display gender
       const col5 = row1.insertCell(4);
+      col5.classList.add('episodeColumn')
       col5.innerHTML = x.episode.map(episode => episode.substring(40)).join(', ');
     }
   });
