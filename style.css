@@ -124,7 +124,7 @@ form {
 }
 
 table {
-  width: minmax(70% 800px);
+  width: clamp(60vw, 500px, 600px);
   margin: auto;
   background: var(--card-head);
 }
@@ -137,6 +137,10 @@ table, th, td {
 @media screen and (max-width:550px) {
   main {
     padding: 0;
+  }
+
+  table {
+    width: 100vw;
   }
 
   .episodeColumn {
