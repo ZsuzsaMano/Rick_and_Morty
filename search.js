@@ -16,39 +16,34 @@ fetch(endpoint)
 
     fillTable(data.results)
 
-setEventListener(data)
+    setEventListener(data)
 
 
-console.log(filterCharacter(data.results));
-
-    //eventListener
-
-
-
+    console.log(filterCharacter(data.results));
   })
 
-const  setEventListener = data =>{
+const setEventListener = data => {
   range.addEventListener('change', () => {
-      clearTable();
+    clearTable();
     fillTable(filterEpisode(data.results));
   })
 
-  gender.addEventListener('change', ()=>{
+  gender.addEventListener('change', () => {
     clearTable();
     fillTable(filterGender(data.results))
   })
 
-  species.forEach(x => x.addEventListener('change', ()=>{
+  species.forEach(x => x.addEventListener('change', () => {
     clearTable();
     fillTable(filterSpecies(data.results))
   }))
 
-  characters.forEach(x => x.addEventListener('change', ()=>{
+  characters.forEach(x => x.addEventListener('change', () => {
     clearTable();
     fillTable(filterCharacter(data.results))
   }))
 
-  input.forEach(x=> x.addEventListener('change', () =>{
+  input.forEach(x => x.addEventListener('change', () => {
     clearTable();
     fillTable(allFilters(data.results))
   }))
@@ -56,48 +51,53 @@ const  setEventListener = data =>{
 
 
 //delete all rows apart from header
-  const clearTable = () => {
-const tableRows = table.rows.length-1
-for(i=0; i<tableRows; i++)
-    table.deleteRow(1); }
+const clearTable = () => {
+  const tableRows = table.rows.length - 1
+  for (i = 0; i < tableRows; i++)
+    table.deleteRow(1);
+}
 
 
 
-      //filter by choosen form value
+//filter by choosen form value
 
-      const filterCharacter = data =>{
-        //get value from form
-        let characterValues = []
-        const checkedCharacters = document.querySelectorAll('input[type=checkbox]:checked');
-        checkedCharacters.forEach(checked => characterValues.push(checked.value))
-        let characterArray = []
-        if(characterValues.includes('Morty')){
-          characterArray= [...data.filter(x => x.name.includes('Morty'))]}
-        if(characterValues.includes('Rick')){
-          characterArray.push(...data.filter(x => x.name.includes('Rick')))}
-        if(characterValues.includes('Other')){
-          characterArray.push(...data.filter(x => x.name.indexOf('Morty')===-1 && x.name.indexOf('Rick')===-1))}
-            return characterArray
-    }
+const filterCharacter = data => {
+  //get value from form
+  let characterValues = []
+  const checkedCharacters = document.querySelectorAll('input[type=checkbox]:checked');
+  checkedCharacters.forEach(checked => characterValues.push(checked.value))
+  let characterArray = []
+  if (characterValues.includes('Morty')) {
+    characterArray = [...data.filter(x => x.name.includes('Morty'))]
+  }
+  if (characterValues.includes('Rick')) {
+    characterArray.push(...data.filter(x => x.name.includes('Rick')))
+  }
+  if (characterValues.includes('Other')) {
+    characterArray.push(...data.filter(x => x.name.indexOf('Morty') === -1 && x.name.indexOf('Rick') === -1))
+  }
+  return characterArray
+}
 
-      const filterGender = data => {
-        //get value from form
-      const genderValue = document.getElementById('Gender').value;
-      //filter data depending on value
-      return genderValue === 'all' ? data: data.filter(x => x.gender === genderValue)
-      }
+const filterGender = data => {
+  //get value from form
+  const genderValue = document.getElementById('Gender').value;
+  //filter data depending on value
+  return genderValue === 'all' ? data : data.filter(x => x.gender === genderValue)
+}
 
-      const filterSpecies = data =>{
-        //get value from form
-        const speciesValue = document.querySelector('input[name="species"]:checked').value;
-        //filter data depending on value
-        return  speciesValue === 'All' ? data:data.filter(x => x.species === speciesValue)}
+const filterSpecies = data => {
+  //get value from form
+  const speciesValue = document.querySelector('input[name="species"]:checked').value;
+  //filter data depending on value
+  return speciesValue === 'All' ? data : data.filter(x => x.species === speciesValue)
+}
 
-      const filterEpisode = data =>{
-        //get value from form
-        const episodesValue = document.getElementById("myRange").value
-        //filter data depending on value
-        return data.filter(x => x.episode.length >= episodesValue)
+const filterEpisode = data => {
+  //get value from form
+  const episodesValue = document.getElementById("myRange").value
+  //filter data depending on value
+  return data.filter(x => x.episode.length >= episodesValue)
 }
 
 const allFilters = data => {
