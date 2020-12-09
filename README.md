@@ -15,7 +15,7 @@ You can search characters by gender, species, check if they are other forms of R
 
 <p align="center">
   <a href="https://zsuzsamano.github.io/Rick_and_Morty/">
-    <img src="./img/characters.png" alt="Characters" >
+    <img src="./img/characters.gif" alt="Characters" >
   </a>
 </p>
 
