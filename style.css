@@ -116,7 +116,7 @@ img {
     background: #25404a17;
 }
 
-button.btn-link.btn-block.text-left::after {
+button.btn-link.btn-block.text-left.collapsed::after {
     font-family: "Font Awesome 5 Free";
     content: "\f078";
     font-weight: bold;
@@ -126,7 +126,14 @@ button.btn-link.btn-block.text-left::after {
     top: 6px;
 }
 
-button.btn-link.btn-block.text-left.collapsed::after {
+button.btn-link.btn-block.text-left::after {
+    font-family: "Font Awesome 5 Free";
+    content: "\f078";
+    font-weight: bold;
+    font-size: 22px;
+    position: absolute;
+    right: 10px;
+    top: 6px;
     content: "\f077";
 }
 
