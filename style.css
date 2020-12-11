@@ -122,8 +122,8 @@ button.btn-link.btn-block.text-left.collapsed::after {
     font-weight: bold;
     font-size: 22px;
     position: absolute;
-    right: 10px;
-    top: 6px;
+    right: 20px;
+    top: 10px;
 }
 
 button.btn-link.btn-block.text-left::after {
@@ -132,8 +132,8 @@ button.btn-link.btn-block.text-left::after {
     font-weight: bold;
     font-size: 22px;
     position: absolute;
-    right: 10px;
-    top: 6px;
+    right: 20px;
+    top: 10px;
     content: "\f077";
 }
 
