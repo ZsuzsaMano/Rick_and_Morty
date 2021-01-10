@@ -1,5 +1,5 @@
 :root {
-  --font-color: #11B0C8;
+  --font-color: #11b0c8;
   --font-before-hover: #a7ccd1;
   --card-head: #aab5b8;
   --card-body: #25404a17;
@@ -12,7 +12,8 @@
   src: url(./font/get-schwifty.woff);
 }
 
-*, .container-fluid {
+*,
+.container-fluid {
   margin: 0;
   padding: 0;
 }
@@ -25,7 +26,8 @@ a {
   color: var(--font-before-hover);
 }
 
-.navbar-dark .navbar-nav .nav-link:focus, .navbar-dark .navbar-nav .nav-link:hover {
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link:hover {
   color: var(--font-color);
 }
 
@@ -99,12 +101,29 @@ img {
   opacity: 1;
 }
 
-#home__gallery img, .main-character__frame {
-  -webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
-  clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+#home__gallery img,
+.main-character__frame {
+  -webkit-clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
+  clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
 }
 
-.accordion>.card>.card-header {
+.accordion > .card > .card-header {
   background: var(--card-head);
 }
 
@@ -129,12 +148,14 @@ table {
   background: var(--card-head);
 }
 
-table, th, td {
+table,
+th,
+td {
   border: 1px solid black;
   text-align: center;
 }
 
-@media screen and (max-width:550px) {
+@media screen and (max-width: 550px) {
   main {
     padding: 0;
   }
