@@ -7,7 +7,6 @@
   --main-background: #25404a;
 }
 
-
 /* Fonts */
 
 @font-face {
@@ -20,7 +19,6 @@
   margin: 0;
   padding: 0;
 }
-
 
 /* Nav */
 
@@ -35,13 +33,11 @@ nav {
   font-family: Get Schwifty;
 }
 
-
 /* Links */
 
 a {
-    color: var(--font-before-hover);
+  color: var(--font-before-hover);
 }
-
 
 /* Main */
 
@@ -52,9 +48,7 @@ main {
   min-height: 90vh;
 }
 
-
 /* Headers */
-
 
 h1 {
   text-align: center;
@@ -64,7 +58,6 @@ h1 {
   text-transform: uppercase;
   letter-spacing: 0.4rem;
 }
-
 
 /* Images */
 
@@ -89,31 +82,46 @@ img {
 }
 
 .main-character__frame:hover .card-text {
-    opacity: 1;
+  opacity: 1;
 }
 
 #home__gallery img,
 .main-character__frame {
-    -webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
-    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+  -webkit-clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
+  clip-path: polygon(
+    50% 0%,
+    90% 20%,
+    100% 60%,
+    75% 100%,
+    25% 100%,
+    0% 60%,
+    10% 20%
+  );
 }
-
 
 /* Accordion */
 
 #accordionExample {
-    width: 90%;
-    margin: 0 auto;
-    position: relative;
+  width: 90%;
+  margin: 0 auto;
+  position: relative;
 }
 
-.accordion>.card>.card-header {
-    background: var(--card-head);
+.accordion > .card > .card-header {
+  background: var(--card-head);
 }
 
 .card-body {
-    background: #25404a17;
-
+  background: #25404a17;
+}
 
 .main-character__frame:hover img {
   opacity: 0.4;
@@ -137,9 +145,7 @@ img {
   color: white;
 }
 
-
 /* Accordion arrows */
-
 
 #home__gallery img,
 .main-character__frame {
@@ -196,7 +202,6 @@ button.btn-link.btn-block.text-left::after {
   color: var(--main-background);
 }
 
-
 /* Forms */
 
 form {
@@ -205,7 +210,6 @@ form {
   padding: 1rem;
   background-color: lightblue;
 }
-
 
 /* Tables */
 
@@ -218,21 +222,20 @@ table {
 table,
 th,
 td {
-    border: 1px solid black;
-    text-align: center;
+  border: 1px solid black;
+  text-align: center;
 }
-
 
 /* Queries */
 
-@media screen and (max-width:550px) {
-    main {
-        padding: 0;
-    }
-    table {
-        width: 100vw;
-    }
-    .episodeColumn {
-        display: none;
-    }
-
+@media screen and (max-width: 550px) {
+  main {
+    padding: 0;
+  }
+  table {
+    width: 100vw;
+  }
+  .episodeColumn {
+    display: none;
+  }
+}
